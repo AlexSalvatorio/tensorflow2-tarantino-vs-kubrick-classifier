@@ -95,7 +95,7 @@ model = Sequential([
 optimizer = Adam(lr=1e-3)
 
 model.compile(optimizer=optimizer,loss='categorical_crossentropy',metrics=['accuracy'])
-model.fit(x=tr_image_data,y=tr_label_data,epochs=5,batch_size=100)
+model.fit(x=tr_image_data,y=tr_label_data,epochs=50,batch_size=100)
 model.summary()
 
 #displaying images
@@ -113,5 +113,7 @@ for cnt, data in enumerate(test_images[10:40]):
         str_label='horror'
     y.imshow(img,cmap='gray')
     plt.title(str_label)
+    y.axes.get_xaxis().set_visible(False)
+    y.axes.get_yaxis().set_visible(False)
 
 plt.show()

@@ -8,6 +8,7 @@ import tensorflow as ts
 from tensorflow import keras
 from tensorflow.keras import layers
 from tensorflow.keras import Sequential
+from tensorflow.keras.optimizers import Adam
 
 print('Tensor version: '+ts.__version__)
 
@@ -64,9 +65,29 @@ tr_image_data = np.array([i[0] for i in training_images]).reshape(-1,64,64,1)
 tr_label_data = np.array([i[1] for i in training_images])
 
 #creating model
-model = Sequential()
-"""
-model.add(InputLayer(input_shape=[64,64,1])) #iput of the model
-model.add(Conv2D(filters=32,kernel_size=5,stride=1,padding='same',activation='relu'))
-model.add(MaxPool2D(pool_size=5,padding='same' ))
-"""
+model = Sequential([
+    layers.InputLayer(input_shape=[64, 64,1]),
+
+    layers.Conv2D(filters=32, kernel_size=5, stride=1, padding='same', activation='relu'),
+    layers.MaxPool2D(pool_size=5,padding='same'),
+
+    layers.Conv2D(filters=50, kernel_size=5, stride=1, padding='same', activation='relu'),
+    layers.MaxPool2D(pool_size=5,padding='same'),
+
+    layers.Conv2D(filters=80, kernel_size=5, stride=1, padding='same', activation='relu'),
+    layers.MaxPool2D(pool_size=5,padding='same'),
+
+    layers.Dropout(0.35),
+    layers.Flatten(),
+    layers.Dense(512,activation='relu'),
+    layers.Dropout(rate=0.5),
+    layers.Dense(2,activation='softmax'),
+])
+
+optimizer = Adam(lr=1e-3)
+
+model.compile(optimizer=optimizer,loss='categorical_crossentropy',metrics=['accuracy'])
+model.fit(x=tr_image_data,y=tr_label_data,epoch=50,batch_size=100)
+model.summary()
+
+

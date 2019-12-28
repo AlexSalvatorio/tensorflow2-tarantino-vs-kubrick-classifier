@@ -1,3 +1,5 @@
+
+
 import cv2
 import numpy as np
 import os
@@ -11,6 +13,10 @@ from tensorflow.keras import Sequential
 from tensorflow.keras.optimizers import Adam
 
 import matplotlib.pyplot as plt
+from IPython import get_ipython
+ipy = get_ipython()
+if ipy is not None:
+    ipy.run_line_magic('matplotlib', 'inline')
 
 print('Tensor version: '+ts.__version__)
 
@@ -89,7 +95,7 @@ model = Sequential([
 optimizer = Adam(lr=1e-3)
 
 model.compile(optimizer=optimizer,loss='categorical_crossentropy',metrics=['accuracy'])
-model.fit(x=tr_image_data,y=tr_label_data,epochs=50,batch_size=100)
+model.fit(x=tr_image_data,y=tr_label_data,epochs=5,batch_size=100)
 model.summary()
 
 #displaying images
@@ -98,11 +104,14 @@ for cnt, data in enumerate(test_images[10:40]):
     y = fig.add_subplot(6,5,cnt+1)
     img = data[0]
     data = img.reshape(1,64,64,1)
+    data = ts.cast(data, ts.float32) #cast data to the float32 format, the int8 being not compatible with tensorflow
     model_out = model.predict([data])
 
     if np.argmax(model_out) == 1:
         str_label='western'
     else:
         str_label='horror'
-    y.imshow(img,cmap='grey')
+    y.imshow(img,cmap='gray')
     plt.title(str_label)
+
+plt.show()

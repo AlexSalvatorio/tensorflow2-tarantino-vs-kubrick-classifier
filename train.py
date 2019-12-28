@@ -10,6 +10,8 @@ from tensorflow.keras import layers
 from tensorflow.keras import Sequential
 from tensorflow.keras.optimizers import Adam
 
+import matplotlib.pyplot as plt
+
 print('Tensor version: '+ts.__version__)
 
 train_data = '../../../Trainning/training-google-images/train'
@@ -89,3 +91,18 @@ optimizer = Adam(lr=1e-3)
 model.compile(optimizer=optimizer,loss='categorical_crossentropy',metrics=['accuracy'])
 model.fit(x=tr_image_data,y=tr_label_data,epochs=50,batch_size=100)
 model.summary()
+
+#displaying images
+fig=plt.figure(figsize=(14,14))
+for cnt, data in enumerate(test_images[10:40]):
+    y = fig.add_subplot(6,5,cnt+1)
+    img = data[0]
+    data = img.reshape(1,64,64,1)
+    model_out = model.predict([data])
+
+    if np.argmax(model_out) == 1:
+        str_label='western'
+    else:
+        str_label='horror'
+    y.imshow(img,cmap='grey')
+    plt.title(str_label)

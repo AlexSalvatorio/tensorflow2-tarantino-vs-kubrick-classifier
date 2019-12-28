@@ -68,13 +68,13 @@ tr_label_data = np.array([i[1] for i in training_images])
 model = Sequential([
     layers.InputLayer(input_shape=[64, 64,1]),
 
-    layers.Conv2D(filters=32, kernel_size=5, stride=1, padding='same', activation='relu'),
+    layers.Conv2D(filters=32, kernel_size=5, strides=1, padding='same', activation='relu'),
     layers.MaxPool2D(pool_size=5,padding='same'),
 
-    layers.Conv2D(filters=50, kernel_size=5, stride=1, padding='same', activation='relu'),
+    layers.Conv2D(filters=50, kernel_size=5, strides=1, padding='same', activation='relu'),
     layers.MaxPool2D(pool_size=5,padding='same'),
 
-    layers.Conv2D(filters=80, kernel_size=5, stride=1, padding='same', activation='relu'),
+    layers.Conv2D(filters=80, kernel_size=5, strides=1, padding='same', activation='relu'),
     layers.MaxPool2D(pool_size=5,padding='same'),
 
     layers.Dropout(0.35),
@@ -87,7 +87,5 @@ model = Sequential([
 optimizer = Adam(lr=1e-3)
 
 model.compile(optimizer=optimizer,loss='categorical_crossentropy',metrics=['accuracy'])
-model.fit(x=tr_image_data,y=tr_label_data,epoch=50,batch_size=100)
+model.fit(x=tr_image_data,y=tr_label_data,epochs=50,batch_size=100)
 model.summary()
-
-

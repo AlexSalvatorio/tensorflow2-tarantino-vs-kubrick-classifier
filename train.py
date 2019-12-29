@@ -38,14 +38,10 @@ def train_data_with_label():
     for i in tqdm(os.listdir(train_data)):
         path = os.path.join(train_data,i)
         img = cv2.imread(path,cv2.IMREAD_GRAYSCALE)
-        #print('---------'+i+'---------'+str(type(img)))
         if str(type(img)).find('NoneType') != -1: 
             print('train '+i+' is empty!')
         else:
-            img = cv2.resize(img, (64,64) ) 
-            #print('---------'+i+'---------')
-            #print(img)
-            #print(np.array(img))
+            img = cv2.resize(img, (64,64) )
             train_images.append([np.array(img),one_hot_label(i)])
     return train_images
 
@@ -54,7 +50,6 @@ def test_data_with_label():
     for i in tqdm(os.listdir(test_data)):
         path = os.path.join(test_data,i)
         img = cv2.imread(path,cv2.IMREAD_GRAYSCALE)
-        #print('---------'+i+'---------'+str(type(img)))
         if str(type(img)).find('NoneType') != -1: 
             print('test '+i+' is empty!')
         else:

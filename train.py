@@ -1,4 +1,5 @@
 
+#Adpation of the [Easy Image Classification with TensorFlow 2.0]
 
 import cv2
 import numpy as np
@@ -7,7 +8,6 @@ from random  import shuffle
 from tqdm import tqdm
 import tensorflow as ts
 
-from tensorflow import keras
 from tensorflow.keras import layers
 from tensorflow.keras import Sequential
 from tensorflow.keras.optimizers import Adam

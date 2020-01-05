@@ -17,6 +17,9 @@ DATA_SET_DIR= '../../../Trainning/training-movie-director/'
 
 ## Conclusion
 
+![Image of loss and accuracy](https://pbs.twimg.com/media/ENhyJkcWsAAVmbd?format=jpg)
+![Image of final model test](https://pbs.twimg.com/media/ENhyJkWXUAIlwJP?format=jpg)
+
 Not very conclusive. Even with a bigger data set we always have about 50% of error.
 I added some drop out to the model's layers but i was worst.
 I think I would havec better result with styles of movies like Horror VS Western movies. Being a Tensorflow Noob I am open to suggestion.

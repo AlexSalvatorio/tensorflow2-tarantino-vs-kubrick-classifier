@@ -1,3 +1,6 @@
+#This script was to test the plot display of picture
+#because the 
+
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 

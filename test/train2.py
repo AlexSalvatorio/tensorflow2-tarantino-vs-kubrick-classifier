@@ -14,7 +14,7 @@ if ipy is not None:
     ipy.run_line_magic('matplotlib', 'inline')
 
 #1. get labels and files
-path_images = '../../../Trainning/training-movie-director'
+path_images = '../../../Trainning/training-movie-director' #REPLACE BY THE PLACE OF YOUR DATA SET FOLDER
 MAX_VALIDATION_FILES = 10;
 MAX_TEST_FILES = 3;
 

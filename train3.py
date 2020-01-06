@@ -73,8 +73,10 @@ validation_image_generator = ts.keras.preprocessing.image.ImageDataGenerator(res
 
 BATCH_SIZE = 32
 #For movie ratio
-IMG_HEIGHT = 100
-IMG_WIDTH = 239
+#IMG_HEIGHT = 100
+#IMG_WIDTH = 239
+IMG_HEIGHT = 256
+IMG_WIDTH = 256
 #STEPS_PER_EPOCH = np.ceil(image_count/BATCH_SIZE)
 EPOCHS = 17
 #EPOCHS = 1
@@ -120,9 +122,7 @@ model = Sequential([
     MaxPooling2D(),
     Conv2D(64, 3, padding='same', activation='relu'),
     MaxPooling2D(),
-    Conv2D(64, 3, padding='same', activation='relu'),
-    MaxPooling2D(),
-    Conv2D(64, 3, padding='same', activation='relu'),
+    Conv2D(128, 3, padding='same', activation='relu'),
     MaxPooling2D(),
     #Dropout(0.2),
     Flatten(),

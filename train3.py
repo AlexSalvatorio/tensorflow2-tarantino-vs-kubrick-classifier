@@ -72,7 +72,7 @@ IMG_WIDTH = 239
 #IMG_WIDTH = 128
 #STEPS_PER_EPOCH = np.ceil(image_count/BATCH_SIZE)
 #EPOCHS = 2
-EPOCHS = 17
+EPOCHS = 20
 
 train_data_gen = train_image_generator.flow_from_directory(directory=str(train_dir),
                                                      batch_size=BATCH_SIZE,

@@ -5,6 +5,7 @@
 #https://www.tensorflow.org/tutorials/images/classification
 import pathlib2
 import os
+import random
 import numpy as np
 from tqdm import tqdm
 import cv2
@@ -179,20 +180,24 @@ def get_test_data():
     test_paths = []
     for i in tqdm(os.listdir(test_dir)):
         path = os.path.join(test_dir,i)
-        test_paths.append(path)
+        
         img = cv2.imread(path)
         if str(type(img)).find('NoneType') != -1: 
             print('test '+i+' is empty!')
         else:
             img = cv2.resize(img, (IMG_WIDTH,IMG_HEIGHT) ) 
             test_images.append([np.array(img)])
+            test_paths.append(path)
     return test_images, test_paths
 
 TEST_DATA, TEST_PATH = get_test_data()
+
+random.shuffle(TEST_PATH)
+
 #displaying images
 fig=plt.figure(figsize=(14,14))
 print(CLASS_NAMES)
-for cnt, img in enumerate(TEST_DATA[:24]):
+for cnt, img in enumerate(TEST_PATH[:24]):
     if TEST_PATH[cnt].find('.DS_Store') == -1:
         y = fig.add_subplot(6,5,cnt+1)
         #data = img.reshape(1,239,100,1)

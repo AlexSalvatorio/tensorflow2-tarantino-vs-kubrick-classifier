@@ -21,9 +21,12 @@ DATA_SET_DIR= '../../../Trainning/training-movie-director/'
 
 ## Conclusion
 
-Not very conclusive. Even with a bigger data set we always have about 50% of error.
+Not very conclusive.
+~~Even with a bigger data set we always have about 50% of error.
 I added some drop out to the model's layers but it was worst.
-I think I will have better result with movie genre classification (like Horror VS Western). Being a Tensorflow Noob I am open to suggestion to improve it.
+I think I will have better result with movie genre classification (like Horror VS Western). Being a Tensorflow Noob I am open to suggestion to improve it.~~
+
+To be honest i don't think this type of classification is relevant. Some screenshoot in kind of composition/shade/themes are very similar between the two directors. Note than adding a 1:1.29 ratio to the size make a significant improvement in the performance of the model. 
 
 learning graphs.
 ![Image of loss and accuracy](https://pbs.twimg.com/media/ENhyJkcWsAAVmbd?format=jpg)

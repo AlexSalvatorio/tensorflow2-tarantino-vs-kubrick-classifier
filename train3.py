@@ -59,17 +59,17 @@ print(CLASS_NAMES)
 train_image_generator = ts.keras.preprocessing.image.ImageDataGenerator(rescale=1./255,
 horizontal_flip=True,
 #width_shift_range=.1,
-#height_shift_range=.25,
+height_shift_range=.25,
 #zoom_range=0.15
 )
 validation_image_generator = ts.keras.preprocessing.image.ImageDataGenerator(rescale=1./255)
 
 BATCH_SIZE = 32
 #For movie ratio
-#IMG_HEIGHT = 100
-#IMG_WIDTH = 239
-IMG_HEIGHT = 128
-IMG_WIDTH = 128
+IMG_HEIGHT = 100
+IMG_WIDTH = 239
+#IMG_HEIGHT = 128
+#IMG_WIDTH = 128
 #STEPS_PER_EPOCH = np.ceil(image_count/BATCH_SIZE)
 #EPOCHS = 2
 EPOCHS = 17
@@ -118,8 +118,10 @@ model = Sequential([
     MaxPooling2D(),
     Conv2D(64, 3, padding='same', activation='relu'),
     MaxPooling2D(),
-    #Conv2D(128, 3, padding='same', activation='relu'),
-    #MaxPooling2D(),
+    Conv2D(128, 3, padding='same', activation='relu'),
+    MaxPooling2D(),
+    Conv2D(256, 3, padding='same', activation='relu'),
+    MaxPooling2D(),
     #Dropout(0.2),
     Flatten(),
     Dense(512, activation='relu'),

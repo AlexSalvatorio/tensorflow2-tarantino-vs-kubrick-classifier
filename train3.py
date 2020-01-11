@@ -26,8 +26,8 @@ if ipy is not None:
 print("TensorFlow version: {}".format(ts.__version__))
 print("Eager execution: {}".format(ts.executing_eagerly()))
 
-DATA_SET_DIR = '../../../Trainning/training-horror-western/'
-#DATA_SET_DIR = '../../../Trainning/training-movie-director/'
+#DATA_SET_DIR = '../../../Trainning/training-horror-western/'
+DATA_SET_DIR = '../../../Trainning/training-movie-director/'
 
 train_dir = DATA_SET_DIR+'train'
 validation_dir = DATA_SET_DIR+'validation'
@@ -118,6 +118,8 @@ model = Sequential([
     MaxPooling2D(),
     Conv2D(64, 3, padding='same', activation='relu'),
     MaxPooling2D(),
+    #Conv2D(128, 3, padding='same', activation='relu'),
+    #MaxPooling2D(),
     #Dropout(0.2),
     Flatten(),
     Dense(512, activation='relu'),
@@ -201,7 +203,7 @@ for cnt, img in enumerate(TEST_DATA[:]):
         str_label = CLASS_NAMES[argmax]
         
         y.imshow(plt.imread(img[1]))
-        #plt.title(str_label)
+        plt.title(str_label)
         y.axes.get_xaxis().set_visible(False)
         y.axes.get_yaxis().set_visible(False)
 

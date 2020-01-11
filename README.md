@@ -1,6 +1,6 @@
 
-** 2020/01/11 Update**
-There was a major error in my previous code, concerning the Test display, giving a wrong idea of the model predictions. I corrected the bug and added shuffling to the test sample.
+## 2020/01/11 Update
+**There was a major error in my previous code, concerning the Test display, giving a wrong idea of the model predictions. I corrected the bug and added shuffling to the test sample.**
 
 # Tensorflow 2.0 : Kubrick VS Tarantino
 
@@ -25,13 +25,13 @@ Not very conclusive.
 ~~Even with a bigger data set we always have about 50% of error.
 I added some drop out to the model's layers but it was worst.
 I think I will have better result with movie genre classification (like Horror VS Western). Being a Tensorflow Noob I am open to suggestion to improve it.~~
-
+**2020/01/11 Update**
 To be honest i don't think this type of classification is relevant. Some screenshoot in kind of composition/shade/themes are very similar between the two directors. Note than adding a 1:1.29 ratio to the size make a significant improvement in the performance of the model. 
 
-learning graphs.
-![Image of loss and accuracy](https://pbs.twimg.com/media/ENhyJkcWsAAVmbd?format=jpg)
-Results with the /test files folder (Note than _Once Upon a Time in Hollywood_ wasn't in the /train nor /validation folders and than the twins picture isn't from the Kurbick's _The Shining_ but the 2019 sequel, _Dr Sleep_)
-![Image of final model test](https://pbs.twimg.com/media/ENhyJkWXUAIlwJP?format=jpg)
+Learning graphs here:
+![Image of loss and accuracy](https://pbs.twimg.com/media/ENhyJkWXUAIlwJP?format=jpg)
+Results with the /test files folder (Note than _Once Upon a Time in Hollywood_ wasn't in the /train nor /validation folders)
+![Image of final model test]( https://pbs.twimg.com/media/ENhyJkcWsAAVmbd?format=jpg)
 
 ## Author
 

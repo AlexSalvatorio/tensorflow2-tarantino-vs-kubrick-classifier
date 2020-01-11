@@ -1,3 +1,7 @@
+
+** 2020/01/11 Update**
+There was a major error in my previous code, concerning the Test display, giving a wrong idea of the model predictions. I corrected the bug and added shuffling to the test sample.
+
 # Tensorflow 2.0 : Kubrick VS Tarantino
 
 This Python script is an experimentation of mine classifying screen captures from directors Tarantino and Kubrick. A big portion of the code come from Arun Prakash's [Build your own Image classifier with Tensorflow and Keras](https://blog.francium.tech/build-your-own-image-classifier-with-tensorflow-and-keras-dc147a15e38e), adapted for Tensorflow 2.0, and also the official Tensorflow's [Image classification] (https://www.tensorflow.org/tutorials/images/classification) tutorial.

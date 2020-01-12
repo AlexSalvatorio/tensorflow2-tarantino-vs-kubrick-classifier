@@ -29,9 +29,9 @@ I think I will have better result with movie genre classification (like Horror V
 To be honest i don't think this type of classification is relevant. Some screenshoot in kind of composition/shade/themes are very similar between the two directors. Note than adding a 1:1.29 ratio to the size make a significant improvement in the performance of the model. 
 
 Learning graphs here:
-![Image of loss and accuracy](https://pbs.twimg.com/media/ENhyJkWXUAIlwJP?format=jpg)
+![Image of loss and accuracy](https://pbs.twimg.com/media/EOEUKgUWkAEhO7E?format=jpg&name=small)
 Results with the /test files folder (Note than _Once Upon a Time in Hollywood_ wasn't in the /train nor /validation folders)
-![Image of final model test]( https://pbs.twimg.com/media/ENhyJkcWsAAVmbd?format=jpg)
+![Image of final model test](https://pbs.twimg.com/media/EOEUKgUXkAA5GGl?format=jpg&name=small)
 
 ## Author
 
